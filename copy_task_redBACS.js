@@ -260,6 +260,10 @@ for (var t = 0; t < n_trials; t++) {
         canvas_width: 1300,
         item_file_type: "img",
         prompt: 'Copy the left grid onto the right grid',
+        on_finish: function() {
+            var curr_progress_bar_value = jsPsych.progressBar.progress;
+            jsPsych.progressBar.progress = curr_progress_bar_value + (1/(n_trials+1));
+        }
     }
 
     timeline_interleaved.push(copy_task)
